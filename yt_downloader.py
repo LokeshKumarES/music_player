@@ -29,7 +29,7 @@ def download_by_url(yt_url=None):
     except Exception as e:
         print(f"Error in Downloading music from youtube url: {yt_url}")
         print(traceback.format_exc())
-        return None # traceback.format_exc()
+        return traceback.format_exc()
     return None
 
 # download_by_url("https://www.youtube.com/watch?v=hOHKltAiKXQ")
