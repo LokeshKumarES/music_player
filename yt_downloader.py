@@ -7,7 +7,7 @@ def download_by_url(yt_url=None):
     try:
         if yt_url:
             # Create a YouTube object
-            yt = YouTube(yt_url)
+            yt = YouTube(yt_url,use_po_token=True)
             # print(yt.streams.get_audio_only().download())
             # Filter audio-only streams and download
         
