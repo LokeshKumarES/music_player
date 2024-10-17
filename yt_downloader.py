@@ -1,5 +1,6 @@
 from pytube import YouTube
 import os, re
+import traceback
 
 
 def download_by_url(yt_url=None):
@@ -26,6 +27,7 @@ def download_by_url(yt_url=None):
         else:
             return None
     except Exception as e:
+        return traceback.format_exc()
         print(f"Error in Downloading music from youtube url: {yt_url}")
     return None
 

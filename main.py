@@ -18,6 +18,7 @@ with st.sidebar:
         if yt_url:
             print('yt_url: ', yt_url)
             curr_song = download_by_url(yt_url)
+            st.info(curr_song)
             if curr_song:
                 st.session_state['curr_song'] = curr_song
                 st.session_state['songs_dict'].update({curr_song: os.path.join('songs', curr_song)}) 
