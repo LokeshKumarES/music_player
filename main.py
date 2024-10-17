@@ -36,7 +36,7 @@ if selected == 'Home':
     if st.selectbox("", options=st.session_state.get('songs_dict').keys(), key="curr_song", label_visibility="hidden"):
         audio_path = st.session_state.get('songs_dict').get(st.session_state.get('curr_song'))
         st.audio(audio_path, format="audio/mp3")
-        st.dataframe(get_info(audio_path), use_container_width=True)
+        # st.dataframe(get_info(audio_path), use_container_width=True)
 
 if selected == 'Settings':
     st.info("Coming Soon!")

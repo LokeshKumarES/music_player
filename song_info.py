@@ -48,4 +48,3 @@ def get_info(file_path=None):
         print(f"Error: {traceback.format_exc()}")
     return data
 
-get_info(r"songs\Todh.mp3")
