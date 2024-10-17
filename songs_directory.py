@@ -23,6 +23,5 @@ def get_song(query=None):
         print("Unable to get song/songs!:{e}")
     return songs_dict
 
-print(get_song("tod"))
 
 
