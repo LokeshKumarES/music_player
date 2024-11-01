@@ -12,21 +12,22 @@ with st.sidebar:
     selected = option_menu("Main Menu", ["Home", 'Settings'], 
         icons=['house', 'gear'], menu_icon="cast", default_index=0)
     
-    st.text_input("", placeholder="Enter Youtube URL", key="yt_url", label_visibility="hidden")
-    if st.button("Search"):
-        yt_url = st.session_state.get('yt_url')
-        if yt_url:
-            print('yt_url: ', yt_url)
-            curr_song = download_by_url(yt_url)
-            st.info(curr_song)
-            if curr_song:
-                st.session_state['curr_song'] = curr_song
-                st.session_state['songs_dict'].update({curr_song: os.path.join('songs', curr_song)}) 
+    # st.text_input("", placeholder="Enter Youtube URL", key="yt_url", label_visibility="hidden")
+    # if st.button("Search"):
+    #     yt_url = st.session_state.get('yt_url')
+    #     if yt_url:
+    #         print('yt_url: ', yt_url)
+    #         curr_song = download_by_url(yt_url)
+    #         st.info(curr_song)
+    #         if curr_song:
+    #             pass
+    #             #st.session_state['curr_song'] = curr_song
+    #             #st.session_state['songs_dict'].update({curr_song: os.path.join('songs', curr_song)}) 
             
-            else:
-                st.warning("Unable to download music from youtube URL") 
-        else:
-            st.warning("Please enter valid youtube URL")
+    #         else:
+    #             st.warning("Unable to download music from youtube URL") 
+    #     else:
+    #         st.warning("Please enter valid youtube URL")
 
 
 
