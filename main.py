@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 import os
-from songs_directory import get_song
+from songs_directory import get_song, get_file_path
 from yt_downloader import download_by_url
 from song_info import get_info
 
@@ -12,6 +12,21 @@ with st.sidebar:
     selected = option_menu("Main Menu", ["Home", 'Settings'], 
         icons=['house', 'gear'], menu_icon="cast", default_index=0)
     
+    uploaded_files = st.file_uploader("Select a audio file", accept_multiple_files=True)
+    if uploaded_files is not None:
+        if len(uploaded_files)>0:
+            for uploaded_file in uploaded_files:
+                #st.info(upload_file.name)
+                save_path = get_file_path(str(uploaded_file.name))
+                if not os.path.exists(save_path):
+                    with open(save_path, "wb") as f:
+                        f.write(uploaded_file.getbuffer())
+                else:
+                    st.warning(f"File Already Exists!: {uploaded_file.name}")
+            
+            st.success(f"{len(uploaded_files)} File Uploaded successfully!")
+
+
     # st.text_input("", placeholder="Enter Youtube URL", key="yt_url", label_visibility="hidden")
     # if st.button("Search"):
     #     yt_url = st.session_state.get('yt_url')

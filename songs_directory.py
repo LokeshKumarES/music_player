@@ -24,4 +24,11 @@ def get_song(query=None):
     return songs_dict
 
 
+def get_file_path(file_name=None):
+    try:
+        song_dir = "songs"
+        destination_path = os.path.join(song_dir, file_name)
+        return destination_path
+    except:
+        print(f"Error in getting file path: {file_name}")
 
