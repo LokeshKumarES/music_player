@@ -12,7 +12,7 @@ with st.sidebar:
     selected = option_menu("Main Menu", ["Home", 'Settings'], 
         icons=['house', 'gear'], menu_icon="cast", default_index=0)
     
-    uploaded_files = st.file_uploader("Select a audio file", accept_multiple_files=True)
+    uploaded_files = st.file_uploader("", accept_multiple_files=True, label_visibility="hidden")
     if uploaded_files is not None:
         if len(uploaded_files)>0:
             for uploaded_file in uploaded_files:
